@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
+  "extends": "eslint:recommended"
+  // "parserOptions": {
+  //   "sourceType": "module",
+  //   "allowImportExportEverywhere": false,
+  //   "ecmaFeatures": {
+  //     "globalReturn": false
+  //   }
+  //   // "babelOptions": {
+  //   //   "configFile": "path/to/config.js"
+  //   // }
+  // }
+}
