@@ -1,23 +1,15 @@
 {
   "root": true,
   "env": {
+    "jest/globals": true,
     "browser": true,
     "amd": true,
     "node": true
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "requireConfigFile": false
+    // "requireConfigFile": false
   },
-  "extends": "eslint:recommended"
-  // "parserOptions": {
-  //   "sourceType": "module",
-  //   "allowImportExportEverywhere": false,
-  //   "ecmaFeatures": {
-  //     "globalReturn": false
-  //   }
-  //   // "babelOptions": {
-  //   //   "configFile": "path/to/config.js"
-  //   // }
-  // }
+  "extends": ["eslint:recommended", "jest/recommended"],
+  "plugins": ["jest"]
 }
