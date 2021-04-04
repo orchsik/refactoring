@@ -1,0 +1,28 @@
+{
+  "editor.suggestSelection": "first",
+  "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "editor.minimap.maxColumn": 45,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.iconTheme": "vscode-icons",
+  "window.zoomLevel": 0,
+  "git.enableSmartCommit": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "git.confirmSync": false,
+  "python.languageServer": "Pylance",
+  "terminal.integrated.scrollback": 10000
+}
