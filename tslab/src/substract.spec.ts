@@ -1,4 +1,4 @@
-const { substract } = require('./substract');
+import { substract } from './substract';
 
 describe('test substract', () => {
   it('2-1=1', () => {

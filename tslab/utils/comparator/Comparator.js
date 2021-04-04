@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export default class Comparator {
   /**
    * @param {function(a: *, b: *)} [compareFunction] - It may be custom compare function that, let's
