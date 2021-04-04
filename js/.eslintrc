@@ -10,6 +10,6 @@
   "parserOptions": {
     // "requireConfigFile": false
   },
-  "extends": ["eslint:recommended", "jest/recommended"],
-  "plugins": ["jest"]
+  "extends": ["eslint:recommended", "jest/recommended", "prettier/recommended"],
+  "plugins": ["jest", "prettier"]
 }
