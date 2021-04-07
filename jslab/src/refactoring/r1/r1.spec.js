@@ -7,7 +7,7 @@ describe('Test [r1]', () => {
     invoices.map((invoice) => {
       const result = statement(invoice, plays);
       const { nums } = result;
-      const expected = ['$650.00', '$580.00', '$500.00', '$1,730.00'];
+      const expected = ['$6.50', '$5.80', '$5.00', '$17.30'];
       expect(nums).toEqual(expected);
     });
     // expect(r1_0()).toEqual(1);
