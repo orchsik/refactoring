@@ -1,6 +1,6 @@
 const plays = require('./plays.json');
 const invoices = require('./invoices.json');
-const { statement } = require('./r1_0/r1_0');
+const { statement } = require('./r1_0/statement');
 
 describe('Test [r1]', () => {
   it('', () => {
@@ -10,6 +10,5 @@ describe('Test [r1]', () => {
       const expected = ['$6.50', '$5.80', '$5.00', '$17.30'];
       expect(nums).toEqual(expected);
     });
-    // expect(r1_0()).toEqual(1);
   });
 });
