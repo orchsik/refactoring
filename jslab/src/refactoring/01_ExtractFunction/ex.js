@@ -1,7 +1,3 @@
-module.exports = {
-  printOwing,
-};
-
 function printOwing(invoice) {
   let outstanding = 0;
 
