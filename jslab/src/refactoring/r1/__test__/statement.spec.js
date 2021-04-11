@@ -1,8 +1,8 @@
-const plays = require('./plays.json');
-const invoices = require('./invoices.json');
-const { statement } = require('./r1_0/statement');
+const plays = require('../plays.json');
+const invoices = require('../invoices.json');
+const { statement } = require('../statement');
 
-describe('Test [r1]', () => {
+describe('refactoring sample', () => {
   it('', () => {
     invoices.map((invoice) => {
       const result = statement(invoice, plays);

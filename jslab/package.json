@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --detectOpenHandles --forceExit ",
+    "test:watch": "jest --detectOpenHandles --forceExit --watch"
   },
   "repository": {
     "type": "git",

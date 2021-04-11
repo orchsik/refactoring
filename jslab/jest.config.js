@@ -7,6 +7,9 @@ module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
+  // Indicates whether each individual test should be reported during the run
+  verbose: false,
+
   // Stop running tests after `n` failures
   bail: 0,
 
@@ -85,10 +88,10 @@ module.exports = {
   // modulePathIgnorePatterns: [],
 
   // Activates notifications for test results
-  // notify: false,
+  // notify: true,
 
   // An enum that specifies notification mode. Requires { notify: true }
-  // notifyMode: "failure-change",
+  // notifyMode: 'failure',
 
   // A preset that is used as a base for Jest's configuration
   // preset: undefined,
@@ -178,9 +181,6 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
-
-  // Indicates whether each individual test should be reported during the run
-  verbose: true,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
