@@ -130,3 +130,30 @@ export function setDefaultOnwer(arg) {
   defaultOwner = args;
 }
 ```
+
+---
+
+## 07. Rename Variable
+
+### 변수 이름 바꾸기
+
+- 고심해서 잘 지으라는 말 밖에 없음.
+
+---
+
+## 08. Introduce Parameter Object
+
+### 매개변수 객체 만들기
+
+```js
+function amountInvoiced(startDate, endDate) { ... }
+```
+
+```js
+function amountInvoiced(aDateRange) { ... }
+```
+
+- 함수의 매개변수가 여러개인 경우, 데이터 구조를 만들 수 있으면 하나로 모아준다.
+- 매개변수가 줄어들고, 가시성이 확보 된다.
+- 더욱 효과적인 점은 데이터 구조에 담길 데이터에 공통으로 적용되는 동작을 추출해서 함수로 만들 수 있다.
+- 새로운 추상 개념으로 격상되어 코드의 그림을 다시 그릴 수 있어 효과가 좋다.
