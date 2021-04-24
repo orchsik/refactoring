@@ -156,4 +156,27 @@ function amountInvoiced(aDateRange) { ... }
 - 함수의 매개변수가 여러개인 경우, 데이터 구조를 만들 수 있으면 하나로 모아준다.
 - 매개변수가 줄어들고, 가시성이 확보 된다.
 - 더욱 효과적인 점은 데이터 구조에 담길 데이터에 공통으로 적용되는 동작을 추출해서 함수로 만들 수 있다.
-- 새로운 추상 개념으로 격상되어 코드의 그림을 다시 그릴 수 있어 효과가 좋다..
+- 새로운 추상 개념으로 격상되어 코드의 그림을 다시 그릴 수 있어 효과가 좋다.
+
+---
+
+## 09. Combine Functions Class
+
+### 여러 함수를 클래스로 묶기
+
+```js
+function base(aReading) { ... }
+function taxableCharge(aReading) { ... }
+function calculateBaseCharge(aReading) { ... }
+```
+
+```js
+class Reading {
+  base() { ... }
+  taxableCharge() { ... }
+  calculateBaseCharge() { ... }
+}
+```
+
+- 흔히 함수 호출 시 인수로 전달되는 데이터를 중심으로 긴밀하게 엮여 작동하는 함수 무리를 발견하면 클래스로 묶어라.
+- 클래스로 묶으면 클라이언트가 객체의 핵심 데이터를 변경할 수 있고, 파생 객체들을 일관되게 관리할 수 있다.
