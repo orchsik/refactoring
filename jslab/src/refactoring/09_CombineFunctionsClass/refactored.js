@@ -37,7 +37,7 @@ const baseCharge = aReading.baseCharge;
 // 클라이언트2
 const rawReading = acquireReading();
 const aReading = new Reading(rawReading);
-const taxableCharge = aReading.taxableCharge();
+const taxableCharge = aReading.taxableCharge;
 
 // 클라이언트3
 const rawReading = acquireReading();

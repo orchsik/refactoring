@@ -180,3 +180,26 @@ class Reading {
 
 - 흔히 함수 호출 시 인수로 전달되는 데이터를 중심으로 긴밀하게 엮여 작동하는 함수 무리를 발견하면 클래스로 묶어라.
 - 클래스로 묶으면 클라이언트가 객체의 핵심 데이터를 변경할 수 있고, 파생 객체들을 일관되게 관리할 수 있다.
+
+---
+
+## 10. Combine Functions into TransForm
+
+### 여러 함수를 변환 함수로 묶기
+
+```js
+function base(aReading) { ... }
+function taxableCharge(aReading) { ... }
+```
+
+```js
+function enrichReading(argReading) {
+  const aReading = _.cloneDeep(argReading);
+  aReading.baseCharge = base(aReading);
+  aReading.taxableCharge = base(aReading);
+  return aReading;
+}
+```
+
+- 9\_여러 함수를 클래스로 묶기와 동일한 목적으로 사용.
+- 단, 이 방식은 클라이언트가 데이터 변경시 데이터 일관성이 깨진다.
