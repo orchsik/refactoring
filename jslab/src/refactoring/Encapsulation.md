@@ -66,3 +66,20 @@ class Person {
 - 컬렉션 게터, 세터는 새로운 컬렉션을 사용하게 해라.
 - 클라이언트가 실수로 컬렉션을 바꿀 가능성을 차단해야 한다.
 - 세터를 사용하지않고 클래스의 적절한 메서드를 사용하게 하면 더욱 캡슐화 가능.
+
+---
+
+## 03. Replace Primitive with Object
+
+### 기본형 객체로 바꾸기
+
+```js
+orders.filter((o) => o.priority === 'high' || o.priority === 'rush');
+```
+
+```js
+orders.filter((o) => o.priority.higherThan(new Priority('normal')));
+```
+
+- 단순한 출력 이상의 기능이 필요해지는 순간, 그 데이터를 표현하는 전용 클래스를 정의해라.
+- 나중에 동작이 필요해지면 이 클래스에 추가하면 되니 프로그램이 커질수록 유용하다.
