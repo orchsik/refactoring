@@ -153,3 +153,131 @@ class TelephoneNumber {
 ```
 
 - 메서드와 데이터가 너무 많은 클래스는 이해하기 쉽지 않으니 잘 살펴보고 적절히 분리하는 것이 좋다.
+
+---
+
+## 06. Inline Class
+
+### 클래스 인라인하기
+
+```js
+class TelephoneNumber {
+  get areaCode() {
+    return this._areaCode;
+  }
+  get number() {
+    return this._number;
+  }
+}
+
+class Person {
+  get officeAreaCode() {
+    return this._telephoneNumber.areaCode;
+  }
+  get officeNumber() {
+    return this._telephoneNumber.number;
+  }
+}
+```
+
+```js
+class Person {
+  get officeAreaCode() {
+    return this._officeAreaCode;
+  }
+  get officeNumber() {
+    return this._officeNumber;
+  }
+}
+```
+
+- [5] 클래스 추출하기를 거꾸로 돌리는 리팩토링
+- 더 이상 제 역할을 못 해서 그대로 두면 안 되는 클래스는 인라인 해라.
+
+---
+
+## 07. Hide Delegate
+
+### 위임 숨기기
+
+```js
+const manager = aPerson.department.manager;
+```
+
+```js
+class Person {
+  get department() {
+    // return ...
+  }
+
+  get manager() {
+    return this.department.manager;
+  }
+}
+
+const manager = aPerson.manager;
+```
+
+- 캡슐화가 잘 되어 있다면 무언가를 변경해야 할 때,
+- 함께 고려해야 할 모듈 수가 적어져서 코드를 변경하기 쉽다.
+- 예, 위임 객체의 인터페이스가 바뀌면 모든 클라이언트 코드 수정이 필요하다.
+- 이런 의존성을 없애려면 서버 자체에 위임 메서드를 만들어서 위임 객체의 존재를 숨기면 된다.
+
+---
+
+## 08. Remove Middle Man
+
+### 중개자 제거하기
+
+```js
+class Person {
+  get department() {
+    // return ...
+  }
+
+  get manager() {
+    return this.department.manager;
+  }
+}
+
+const manager = aPerson.manager;
+```
+
+```js
+const manager = aPerson.department.manager;
+```
+
+- [7] 위임숨기기 거꾸로.
+- 지나친 캡슐화로 클래스가 중개 역할만 하는 경우 되돌려라.
+
+---
+
+## 09. Subsitute Algorithm
+
+### 알고리즘 교체하기
+
+```js
+function foundPersion(people) {
+  for (let i = 0; i < people.length; i++) {
+    if (people[i] === 'Done') {
+      return 'Don';
+    }
+    if (people[i] === 'Jone') {
+      return 'Jone';
+    }
+    if (people[i] === 'Kent') {
+      return 'Kent';
+    }
+  }
+  return '';
+}
+```
+
+```js
+function foundPersion(people) {
+  const candidates = ['Done', 'John', 'Kent'];
+  return people.find((p) => candidates.includes(p)) || '';
+}
+```
+
+- 그냥 더 간결하면 바꾸라는 말.
