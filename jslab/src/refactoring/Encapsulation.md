@@ -63,8 +63,8 @@ class Person {
 }
 ```
 
-- 컬렉션 게터, 세터는 새로운 컬렉션을 사용하게 해라.
 - 클라이언트가 실수로 컬렉션을 바꿀 가능성을 차단해야 한다.
+- 컬렉션 게터, 세터는 새로운 컬렉션을 사용하게 해라.
 - 세터를 사용하지않고 클래스의 적절한 메서드를 사용하게 하면 더욱 캡슐화 가능.
 
 ---
@@ -81,8 +81,9 @@ orders.filter((o) => o.priority === 'high' || o.priority === 'rush');
 orders.filter((o) => o.priority.higherThan(new Priority('normal')));
 ```
 
-- 단순한 출력 이상의 기능이 필요해지는 순간, 그 데이터를 표현하는 전용 클래스를 정의해라.
-- 나중에 동작이 필요해지면 이 클래스에 추가하면 되니 프로그램이 커질수록 유용하다.
+- 단순한 출력 이상의 기능이 필요해지는 순간,
+- 그 데이터를 표현하는 전용 클래스를 정의해라.
+- 나중에 동작이 필요해지면 클래스에 추가하면 되니 유용하다.
 
 ---
 
@@ -92,25 +93,30 @@ orders.filter((o) => o.priority.higherThan(new Priority('normal')));
 
 ```js
 const basePrice = this._quantity * this._itemPrice;
+
 if (basePrice > 1000) {
   return basePrice * 0.95;
 } else {
   return basePrice * 0.98;
 }
-get basePrice() { this._quantity * this._itemPrice }
 ```
 
 ```js
-get basePrice() { this._quantity * this._itemPrice }
+get basePrice() {
+  return this._quantity * this._itemPrice
+}
 
-// ...
-
-if (basePrice > 1000) {
-  return basePrice * 0.95;
-} else {
-  return basePrice * 0.98;
+get anyField() {
+  if (this.basePrice > 1000) {
+    return this.basePrice * 0.95;
+  } else {
+    return this.basePrice * 0.98;
+  }
 }
 ```
+
+- 임시 변수를 아예 함수로 만들어서 사용하는 편이 더 좋을 때가 많다.
+- 원래 함수와 경계가 더욱 뚜렷해지며 해당 기능을 따로 추출할 때 수월함.
 
 ---
 
@@ -152,7 +158,7 @@ class TelephoneNumber {
 }
 ```
 
-- 메서드와 데이터가 너무 많은 클래스는 이해하기 쉽지 않으니 잘 살펴보고 적절히 분리하는 것이 좋다.
+- 메서드와 데이터가 너무 많은 클래스는 이해하기 쉽지 않으니 적절히 분리하는 것이 좋다.
 
 ---
 
@@ -191,7 +197,7 @@ class Person {
 }
 ```
 
-- [5] 클래스 추출하기를 거꾸로 돌리는 리팩토링
+- [5] 클래스 추출하기를 거꾸로 돌리는 리팩토링.
 - 더 이상 제 역할을 못 해서 그대로 두면 안 되는 클래스는 인라인 해라.
 
 ---
@@ -220,7 +226,7 @@ const manager = aPerson.manager;
 
 - 캡슐화가 잘 되어 있다면 무언가를 변경해야 할 때,
 - 함께 고려해야 할 모듈 수가 적어져서 코드를 변경하기 쉽다.
-- 예, 위임 객체의 인터페이스가 바뀌면 모든 클라이언트 코드 수정이 필요하다.
+- 예) 위임 객체의 인터페이스가 바뀌면 모든 클라이언트 코드 수정이 필요하다.
 - 이런 의존성을 없애려면 서버 자체에 위임 메서드를 만들어서 위임 객체의 존재를 숨기면 된다.
 
 ---
@@ -247,8 +253,8 @@ const manager = aPerson.manager;
 const manager = aPerson.department.manager;
 ```
 
-- [7] 위임숨기기 거꾸로.
-- 지나친 캡슐화로 클래스가 중개 역할만 하는 경우 되돌려라.
+- [7] 위임숨기기 되돌리기.
+- 지나친 캡슐화로 인해 클래스가 중개 역할만 하는 경우 되돌려라.
 
 ---
 
