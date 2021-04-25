@@ -201,5 +201,37 @@ function enrichReading(argReading) {
 }
 ```
 
-- 9\_여러 함수를 클래스로 묶기와 동일한 목적으로 사용.
+- 여러 함수를 클래스로 묶기와 동일한 목적으로 사용.
 - 단, 이 방식은 클라이언트가 데이터 변경시 데이터 일관성이 깨진다.
+
+---
+
+## 11. Split Phase
+
+### 단계 쪼개기
+
+```js
+const orderdata = orderString.split(/\s+/);
+const productPrice = priceList[orderData[0].split('-')[1]];
+const orderPrice = parseInt(orderData[1]) * productPrice;
+```
+
+```js
+const orderRecord = parseOrder(order);
+const orderPrice = price(orderRecord, priceList);
+
+function parseOrder(aString) {
+  const values = aString.split(/\s+/);
+  return {
+    productID: values[0].split('-')[1],
+    quantity: parseInt(values[1]),
+  };
+}
+
+function price(order, priceList) {
+  return order.quantity * priceList[order.productID];
+}
+```
+
+- 서로 다른 두 대상을 한꺼번에 다루는 코드를 발견하면 각각을 별개의 모듈로 나눠라.
+- 수정해야 할 때 두 대상을 동시에 생각할 필요 없이 하나에만 집중할 수 있다.
