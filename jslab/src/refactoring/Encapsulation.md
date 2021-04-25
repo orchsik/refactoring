@@ -83,3 +83,73 @@ orders.filter((o) => o.priority.higherThan(new Priority('normal')));
 
 - 단순한 출력 이상의 기능이 필요해지는 순간, 그 데이터를 표현하는 전용 클래스를 정의해라.
 - 나중에 동작이 필요해지면 이 클래스에 추가하면 되니 프로그램이 커질수록 유용하다.
+
+---
+
+## 04. Replace Temp with Query
+
+### 임시 변수를 질의 함수로 바꾸기
+
+```js
+const basePrice = this._quantity * this._itemPrice;
+if (basePrice > 1000) {
+  return basePrice * 0.95;
+} else {
+  return basePrice * 0.98;
+}
+get basePrice() { this._quantity * this._itemPrice }
+```
+
+```js
+get basePrice() { this._quantity * this._itemPrice }
+
+// ...
+
+if (basePrice > 1000) {
+  return basePrice * 0.95;
+} else {
+  return basePrice * 0.98;
+}
+```
+
+---
+
+## 05. Extract Class
+
+### 클래스 추출하기
+
+```js
+class Person {
+  get officeAreaCode() {
+    return this._officeAreaCode;
+  }
+
+  get officeNumber() {
+    return this._officeNumber;
+  }
+}
+```
+
+```js
+class Person {
+  get officeAreaCode() {
+    return this._telephoneNumber.areaCode;
+  }
+
+  get officeNumber() {
+    return this._telephoneNumber.number;
+  }
+}
+
+class TelephoneNumber {
+  get areaCode() {
+    return this._areaCode;
+  }
+
+  get number() {
+    return this._number;
+  }
+}
+```
+
+- 메서드와 데이터가 너무 많은 클래스는 이해하기 쉽지 않으니 잘 살펴보고 적절히 분리하는 것이 좋다.
