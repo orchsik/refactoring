@@ -16,6 +16,16 @@ if (summer()) {
 } else {
   charge = regularCharge();
 }
+
+function summer() {
+  return aDate.isBefore(plan.summerStart) || aDate.isAfter(plan.summerEnd);
+}
+function summerCharge() {
+  return quantity * plan.summerRate;
+}
+function regularCharge() {
+  return quantity * plan.regularRate + plan.regularServiceCharge;
+}
 ```
 
 - 거대한 코드 블록이 주어지면 코드를 부위별로 분해해라.
@@ -48,7 +58,7 @@ if (isNotEligibleForDisablity()) {
 }
 ```
 
-- 조건식이 다르지만 조건만족식이 동일한 경우 합쳐라.
+- 여러 조건식에 하나의 조건만족식을 쓰고 있음? 조건식을 합쳐라.
 - 조건식이 명확해지고, 함수추출을 할 수 있다.
 
 ---
@@ -93,7 +103,7 @@ function getPayAmount() {
 ```
 
 - 조건식이 복잡하면 잘 안 보인다.
-- 조건 하나하나씩 return문으로 걸러라.
+- 조건 하나 하나씩 return문으로 걸러서 내보내라.
 
 ---
 
@@ -143,7 +153,7 @@ class AfricanSwallow {
 ```
 
 - 아무 조건문이나 막 다형성 쓰지마라.
-- 하나의 조건방식으로 복수개의 동작을 구분하면서 복잡할 때 써라.
+- 하나의 조건(타입)으로 여러 동작을 구분하면서 복잡할 때 써라.
 - #1 클래스 하나 만들어서 함수들 집어 넣고
 - #2 서브클래스 만들어서 조건별 함수 구현하고
 - #3 타입별 서브클래스의 인스턴스를 바노한하는 팩토리함수 만들어라.
@@ -155,7 +165,7 @@ class AfricanSwallow {
 ### 특이 케이스 추가하기
 
 - 특이 케이스를 위한 클래스 하나 만들어라.
-- 앞의 리팩토링과 큰 의미 없어 생략.
+- 앞의 리팩토링과 큰 의미 없어서 생략한다.
 
 ---
 
@@ -164,7 +174,7 @@ class AfricanSwallow {
 ### 어서션 추가하기
 
 - 특정 조건이 참인 경우만 동작하는 코드 영역이 있을 것 이다.
-- 거기에 assert 써라.(Library, console.assert)
+- 거기에 assert 써봐라 좋다.(Library, console.assert)
 
 ---
 
@@ -192,4 +202,4 @@ for (const p of people) {
 }
 ```
 
-- 반목문에서 return break 사용하지 않고 Flag 값 사용하지마라.
+- 반목문에서 Flag 값 사용말고, return break 사용해라.
