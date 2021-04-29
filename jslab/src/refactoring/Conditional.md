@@ -147,3 +147,49 @@ class AfricanSwallow {
 - #1 클래스 하나 만들어서 함수들 집어 넣고
 - #2 서브클래스 만들어서 조건별 함수 구현하고
 - #3 타입별 서브클래스의 인스턴스를 바노한하는 팩토리함수 만들어라.
+
+---
+
+## 05. Introduce Special Case
+
+### 특이 케이스 추가하기
+
+- 특이 케이스를 위한 클래스 하나 만들어라.
+- 앞의 리팩토링과 큰 의미 없어 생략.
+
+---
+
+## 06. Introduce Assertion
+
+### 어서션 추가하기
+
+- 특정 조건이 참인 경우만 동작하는 코드 영역이 있을 것 이다.
+- 거기에 assert 써라.(Library, console.assert)
+
+---
+
+## 06. Replace Control Flag with Break
+
+### 제어 플래그를 탈출문으로 바꾸기
+
+```js
+for (const p of people) {
+  if (!found) {
+    if (p === 'joker') {
+      sendAlert();
+      fount = true;
+    }
+  }
+}
+```
+
+```js
+for (const p of people) {
+  if (p === 'joker') {
+    sendAlert();
+    break;
+  }
+}
+```
+
+- 반목문에서 return break 사용하지 않고 Flag 값 사용하지마라.
