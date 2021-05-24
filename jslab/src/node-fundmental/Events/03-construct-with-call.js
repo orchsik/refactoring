@@ -10,7 +10,9 @@ Person.prototype.greet = function () {
 };
 
 function Policeman() {
-  Person.call(this); // inherit는 prototype method만 상속해줌.
+  // 모든 property와 method를 사용하기위해.
+  // inherit는 prototype method만 상속해줌.
+  Person.call(this);
   this.badgenumber = '1234';
 }
 
