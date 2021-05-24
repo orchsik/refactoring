@@ -1,5 +1,5 @@
 const Emitter = require('events');
-// const Emitter = require('./emitter');
+// const Emitter = require('./custom-emitter');
 
 const eventConfig = require('./config').events;
 
