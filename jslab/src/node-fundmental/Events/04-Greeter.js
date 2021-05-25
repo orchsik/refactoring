@@ -1,8 +1,8 @@
 'use strict';
 
-const EventEmitter = require('events');
+const Events = require('events');
 
-module.exports = class Greeter extends EventEmitter {
+module.exports = class Greeter extends Events {
   constructor() {
     super(); // inherit all property and method.
     this.greeting = 'Hellow world!';
@@ -13,11 +13,11 @@ module.exports = class Greeter extends EventEmitter {
   }
 };
 
-// function Greeter() {
-//   EventEmitter.call(this);
+// module.exports = function Greeter() {
+//   Events.call(this);
 //   this.greeting = 'Hello world!';
 // }
-// util.inherits(Greeter, EventEmitter);
+// util.inherits(Greeter, Events);
 // Greeter.prototype.greet = function (data) {
 //   console.log(this.greeting, data);
 //   this.emit('greet', data);
