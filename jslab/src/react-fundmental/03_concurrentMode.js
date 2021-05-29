@@ -1,6 +1,7 @@
 const React = require('react');
 const { JSDOM } = require('jsdom');
-const { document } = new JSDOM().window;
+const window = new JSDOM().window;
+const { document } = window;
 
 function createTextElement(text) {
   return {
@@ -64,6 +65,19 @@ const container = document.getElementById('root');
 MyReact.render(element, container);
 
 /**
- * 고고 render 리팩토링 가자!
- * 작업을 더 작은 단위로 나누고, 브라우저가 작업이 필요한 경우, 렌더링 도중 끼어들수 있게 하자.
+ *
+ *
+ *
+ *
  */
+window.requestIdleCallback = function (cb) {
+  var start = Date.now();
+  return setTimeout(function () {
+    cb({
+      didTimeout: false,
+      timeRemaining: function () {
+        return Math.max(0, 50 - (Date.now() - start));
+      },
+    });
+  }, 1);
+};
