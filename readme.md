@@ -44,3 +44,8 @@ $ yarn
 ```bash
 $ yarn test [-- testname]
 ```
+> 7. ### 노드 환경변수 확인
+
+```bash
+node -e 'console.log(process.env)'
+```
