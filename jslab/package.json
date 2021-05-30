@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
     "test": "jest --detectOpenHandles --forceExit ",
-    "test:watch": "jest --detectOpenHandles --forceExit --watch"
+    "test:watch": "jest --detectOpenHandles --forceExit --watch",
+    "dev": "nodemon %INIT_CWD%/%npm_config_file%",
+    "start": "node index.js",
+    "pwd": "echo %npm_config_arg%",
+    "sh": "sh ./test.sh"
   },
   "repository": {
     "type": "git",

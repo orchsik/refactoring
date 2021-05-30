@@ -3,6 +3,17 @@
   "tasks": [
     {
       "type": "shell",
+      "label": "Run nodemon",
+      "command": "nodemon",
+      "args": ["${fileDirname}/${fileBasenameNoExtension}.js"], // Window
+      // "args": ["${fileDirname}\\${fileBasenameNoExtension}.js"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
       "label": "Run node",
       "command": "node",
       "args": ["${fileDirname}/${fileBasenameNoExtension}.js"], // Window
